@@ -1,0 +1,12 @@
+D:\github\flight project\flight project\bin\Debug\flight project.exe.config
+D:\github\flight project\flight project\bin\Debug\flight project.exe
+D:\github\flight project\flight project\bin\Debug\flight project.pdb
+D:\github\flight project\flight project\bin\Debug\Oracle.DataAccess.dll
+D:\github\flight project\flight project\obj\Debug\flight project.csproj.AssemblyReference.cache
+D:\github\flight project\flight project\obj\Debug\flight_project.Form1.resources
+D:\github\flight project\flight project\obj\Debug\flight_project.Properties.Resources.resources
+D:\github\flight project\flight project\obj\Debug\flight project.csproj.GenerateResource.cache
+D:\github\flight project\flight project\obj\Debug\flight project.csproj.CoreCompileInputs.cache
+D:\github\flight project\flight project\obj\Debug\flight project.csproj.CopyComplete
+D:\github\flight project\flight project\obj\Debug\flight project.exe
+D:\github\flight project\flight project\obj\Debug\flight project.pdb

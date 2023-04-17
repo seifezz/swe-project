@@ -14,8 +14,7 @@ namespace flight_project
 {
     public partial class Form1 : Form
     {
-        string orcl = "data source = orcl ; user id = hr ; password = hr ;";
-        OracleConnection connection;
+        
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +22,8 @@ namespace flight_project
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            connection = new OracleConnection(orcl);
+
+            
 
         }
     }

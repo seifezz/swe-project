@@ -10,3 +10,14 @@ D:\github\flight project\flight project\obj\Debug\flight project.csproj.CoreComp
 D:\github\flight project\flight project\obj\Debug\flight project.csproj.CopyComplete
 D:\github\flight project\flight project\obj\Debug\flight project.exe
 D:\github\flight project\flight project\obj\Debug\flight project.pdb
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\bin\Debug\flight project.exe.config
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\bin\Debug\flight project.exe
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\bin\Debug\flight project.pdb
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\obj\Debug\flight project.csproj.AssemblyReference.cache
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\obj\Debug\flight_project.Form1.resources
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\obj\Debug\flight_project.Properties.Resources.resources
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\obj\Debug\flight project.csproj.GenerateResource.cache
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\obj\Debug\flight project.csproj.CoreCompileInputs.cache
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\obj\Debug\flight project.exe
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\obj\Debug\flight project.pdb
+D:\FCIS\Sixth Semester\SWE\swe-project\flight project\obj\Debug\flight_project.SignupForm.resources

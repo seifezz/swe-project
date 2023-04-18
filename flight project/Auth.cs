@@ -12,13 +12,11 @@ namespace flight_project
     class Auth
     {
 
-        //OracleConnection conn;
-        //string connectionString = "Data source=orcl;User Id=scott;Password=tiger;";
+       
 
         public Auth()
         {
-            //conn = new OracleConnection(connectionString);
-            //conn.Open();
+           
         }
 
         public bool LogIn(string email, string pass)

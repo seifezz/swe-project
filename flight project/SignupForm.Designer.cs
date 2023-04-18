@@ -161,9 +161,9 @@ namespace flight_project
             // 
             // btn_signup
             // 
-            this.btn_signup.Location = new System.Drawing.Point(613, 415);
+            this.btn_signup.Location = new System.Drawing.Point(613, 409);
             this.btn_signup.Name = "btn_signup";
-            this.btn_signup.Size = new System.Drawing.Size(175, 23);
+            this.btn_signup.Size = new System.Drawing.Size(175, 29);
             this.btn_signup.TabIndex = 14;
             this.btn_signup.Text = "Sign Up";
             this.btn_signup.UseVisualStyleBackColor = true;
@@ -190,6 +190,7 @@ namespace flight_project
             this.Controls.Add(this.SignUp);
             this.Name = "SignupForm";
             this.Text = "SignupForm";
+            this.Load += new System.EventHandler(this.SignupForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

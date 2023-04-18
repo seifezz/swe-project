@@ -12,10 +12,10 @@ using Oracle.DataAccess.Types;
 
 namespace flight_project
 {
-    public partial class Form1 : Form
+    public partial class signinform : Form
     {
         
-        public Form1()
+        public signinform()
         {
             InitializeComponent();
         }
@@ -25,6 +25,41 @@ namespace flight_project
 
             
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string email = txt_email.ToString();
+            string password = txt_pass.ToString();
+
+            Auth login = new Auth();
+            bool logged = login.LogIn(email , password);
+            if (logged)
+            {
+                //if ()
+                //{
+                //    if admin go to admin
+                //}
+                //else
+                //{
+                //    // go to user
+                //}
+
+            }
+            else
+            {
+                 // again tani log in 
+            }
+        }
+
+        private void nav_signup_Click(object sender, EventArgs e)
+        {
+            // go to the sign up 
         }
     }
 }

@@ -76,5 +76,10 @@ namespace flight_project
             }
 
         }
+
+        private void SignupForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

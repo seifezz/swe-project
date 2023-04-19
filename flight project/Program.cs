@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace flight_project
 {
+
     static class Program
     {
         /// <summary>
@@ -16,7 +17,8 @@ namespace flight_project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignupForm());
+
+            Application.Run(new signinform());
         }
     }
 }

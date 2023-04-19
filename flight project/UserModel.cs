@@ -55,7 +55,7 @@ namespace flight_project
             {
                 r = cmd.ExecuteNonQuery();
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 return false;
             }
@@ -87,7 +87,7 @@ namespace flight_project
             {
                 dr = cmd.ExecuteReader();
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 return null;
             }

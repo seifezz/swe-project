@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -32,8 +33,7 @@ namespace flight_project
             string userPhone = txt_phone.Text.ToString();
 
 
-            MessageBox.Show(userBirthDate);
-            
+
             User myUser = new User(userEmail, userNatId, userPhone, userNatId, userBirthDate, userPassword);
 
             Auth auth = new Auth();
@@ -47,11 +47,11 @@ namespace flight_project
             }
             else
             {
-                if(signUpResult == 1)
+                if (signUpResult == 1)
                 {
                     MessageBox.Show("You are not signed up, Your email is not valid");
                 }
-                else if(signUpResult == 2)
+                else if (signUpResult == 2)
                 {
                     MessageBox.Show("You are not signed up, You are using week password");
 
@@ -80,6 +80,11 @@ namespace flight_project
         private void SignupForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void SignupForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Process.GetCurrentProcess().Kill();
         }
     }
 }

@@ -12,7 +12,8 @@ namespace flight_project
     class Auth
     {
 
-       
+        readonly string SALT = "test-salt-for-hashing-password";
+
 
         public Auth()
         {
@@ -40,8 +41,9 @@ namespace flight_project
             return isLoged;
 
         }
-    
-        public int SignUp(User user) {
+
+        public int SignUp(User user)
+        {
 
             bool validEmail = Validator.validateEmail(user.email);
             bool validPassword = Validator.validatePassowrd(user.password);
@@ -49,7 +51,7 @@ namespace flight_project
             string[] values = { user.name, user.email, user.password, user.age, user.name, user.phoneNumber };
             bool notEmpty = Validator.notEmpty(values);
 
-            
+
 
 
 
@@ -74,10 +76,13 @@ namespace flight_project
                 return 4;
             }
 
+            string hashedPassword = HashPassword(user.password, SALT);
+            user.password = hashedPassword;
+
             UserModel userModel = new UserModel(user);
             bool creationStatue = userModel.createUser();
 
-            if(creationStatue)
+            if (creationStatue)
             {
                 return 0;
             }
@@ -87,7 +92,19 @@ namespace flight_project
             }
 
         }
-    
+
+        private string HashPassword(string password, string salt)
+        {
+            byte[] buffer = System.Text.Encoding.UTF8.GetBytes(password + salt);
+            System.Security.Cryptography.SHA256Managed SHA256 = new System.Security.Cryptography.SHA256Managed();
+            byte[] hashed = SHA256.ComputeHash(buffer);
+
+            string hashedString = System.Text.Encoding.UTF8.GetString(hashed);
+
+            return hashedString;
+
+        }
+
     }
 
     

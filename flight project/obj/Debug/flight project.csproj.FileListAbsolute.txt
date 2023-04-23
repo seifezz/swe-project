@@ -61,3 +61,20 @@ D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight
 D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight project.csproj.CoreCompileInputs.cache
 D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight project.exe
 D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight project.pdb
+D:\swe-project\flight project\obj\Debug\flight project.csproj.AssemblyReference.cache
+D:\swe-project\flight project\obj\Debug\flight_project.AdminForm.resources
+D:\swe-project\flight project\obj\Debug\flight_project.createcard.resources
+D:\swe-project\flight project\obj\Debug\flight_project.signinform.resources
+D:\swe-project\flight project\obj\Debug\flight_project.Properties.Resources.resources
+D:\swe-project\flight project\obj\Debug\flight_project.SignupForm.resources
+D:\swe-project\flight project\obj\Debug\flight_project.updateinfo.resources
+D:\swe-project\flight project\obj\Debug\flight_project.UserForm.resources
+D:\swe-project\flight project\obj\Debug\flight project.csproj.GenerateResource.cache
+D:\swe-project\flight project\obj\Debug\flight project.csproj.CoreCompileInputs.cache
+D:\swe-project\flight project\obj\Debug\flight project.exe
+D:\swe-project\flight project\obj\Debug\flight project.pdb
+D:\swe-project\flight project\bin\Debug\flight project.exe.config
+D:\swe-project\flight project\bin\Debug\flight project.exe
+D:\swe-project\flight project\bin\Debug\flight project.pdb
+D:\swe-project\flight project\bin\Debug\Oracle.DataAccess.dll
+D:\swe-project\flight project\obj\Debug\flight project.csproj.CopyComplete

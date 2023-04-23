@@ -9,6 +9,9 @@ namespace flight_project
 
     static class Program
     {
+
+        public static string globaleEmail = "";
+        public static bool Authanticated = false;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -19,6 +22,15 @@ namespace flight_project
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new signinform());
+
+            if (Authanticated)
+            {
+                Application.Run(new UserForm());
+            }
+            else
+            {
+                MessageBox.Show("Faild to load Programe..!");
+            }
         }
     }
 }

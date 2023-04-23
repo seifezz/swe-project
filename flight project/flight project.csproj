@@ -57,6 +57,12 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Auth.cs" />
+    <Compile Include="createcard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createcard.Designer.cs">
+      <DependentUpon>createcard.cs</DependentUpon>
+    </Compile>
     <Compile Include="SigninForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,12 @@
     <Compile Include="SignupForm.Designer.cs">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="updateinfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateinfo.Designer.cs">
+      <DependentUpon>updateinfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +93,9 @@
     <Compile Include="Validator.cs" />
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createcard.resx">
+      <DependentUpon>createcard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SigninForm.resx">
       <DependentUpon>SigninForm.cs</DependentUpon>
@@ -96,6 +111,9 @@
     </Compile>
     <EmbeddedResource Include="SignupForm.resx">
       <DependentUpon>SignupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateinfo.resx">
+      <DependentUpon>updateinfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

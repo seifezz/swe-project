@@ -17,7 +17,7 @@ namespace flight_project
 
         public Auth()
         {
-           
+
         }
 
         public bool LogIn(string email, string pass)
@@ -76,8 +76,8 @@ namespace flight_project
                 return 4;
             }
 
-            string hashedPassword = HashPassword(user.password, SALT);
-            user.password = hashedPassword;
+            /*string hashedPassword = HashPassword(user.password, SALT);
+            user.password = hashedPassword;*/
 
             UserModel userModel = new UserModel(user);
             bool creationStatue = userModel.createUser();
@@ -107,5 +107,5 @@ namespace flight_project
 
     }
 
-    
+
 }

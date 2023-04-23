@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 
@@ -81,7 +81,7 @@ namespace flight_project
             {
                 r = cmd.ExecuteNonQuery();
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 return false;
             }
@@ -112,7 +112,7 @@ namespace flight_project
             {
                 dr = cmd.ExecuteReader();
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 return null;
             }
@@ -148,7 +148,6 @@ namespace flight_project
             catch (Exception err)
             {
                 throw (err);
-                return false;
             }
 
             if (r != -1)
@@ -182,7 +181,7 @@ namespace flight_project
                 {
                     r = cmd.ExecuteNonQuery();
                 }
-                catch (Exception err)
+                catch (Exception)
                 {
                     return false;
                 }
@@ -243,8 +242,9 @@ namespace flight_project
                 return null;
             }
         }
-        public bool UpdateInfo(string email, dataToBeUpdated newData, UserModel.dataToBeUpdated.cardInfo cardInfo)
+        public bool UpdateInfo(string email, dataToBeUpdated newData, UserModel.dataToBeUpdated.cardInfo cardInfo, bool availcredit)
         {
+            int r = -1, x = -1;
             bool status = false;
             updateCardNumberInUserInfo(cardInfo.cardId, email);
             OracleCommand cmd = new OracleCommand();
@@ -262,33 +262,49 @@ namespace flight_project
             cmd.Parameters.Add("email", email);
             //cardinfo
 
-
-            cmd2.CommandText = "UPDATE cardinfo SET pass=:newPass, clientname=:newClientName WHERE cardnumber =:cardNumber";
-            cmd2.Parameters.Add("newPass", cardInfo.passNum);
-            cmd2.Parameters.Add("newClientName", cardInfo.clientName);
-            cmd2.Parameters.Add("cardNumber", getCardInfoByemail(email).cardId);
-            int r = -1, x = -1;
-            try
+            if (availcredit)
             {
-                r = cmd.ExecuteNonQuery();
-                x = cmd2.ExecuteNonQuery();
+                cmd2.CommandText = "UPDATE cardinfo SET pass=:newPass, clientname=:newClientName WHERE cardnumber =:cardNumber";
+                cmd2.Parameters.Add("newPass", cardInfo.passNum);
+                cmd2.Parameters.Add("newClientName", cardInfo.clientName);
+                cmd2.Parameters.Add("cardNumber", getCardInfoByemail(email).cardId);
+                try
+                {
+                    r = cmd.ExecuteNonQuery();
+                    x = cmd2.ExecuteNonQuery();
 
+                }
+                catch (Exception err)
+                {
+                    status = false;
+                    throw (err);
+                }
+                if (r != -1 && x != -1)
+                {
+
+                    status = true;
+
+                }
+                return status;
             }
-            catch (Exception err)
+            else
             {
-                throw (err);
-                status = false;
+                try
+                {
+                    r = cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception err)
+                {
+                    status = false;
+                    throw (err);
+                }
+                if (r != -1)
+                {
+                    status = true;
+                }
+                return status;
             }
-            if (r != -1 && x != -1)
-            {
-
-                status = true;
-
-            }
-
-
-
-            return status;
 
         }
 

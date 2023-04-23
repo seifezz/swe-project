@@ -58,7 +58,7 @@ namespace flight_project
                         break;
                     }
                 }
-
+                Program.globaleEmail = email;
                 if (x)
                 {
                     AdminForm adminForm = new AdminForm();

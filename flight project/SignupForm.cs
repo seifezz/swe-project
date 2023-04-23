@@ -34,7 +34,7 @@ namespace flight_project
 
 
 
-            User myUser = new User(userEmail, userNatId, userPhone, userNatId, userBirthDate, userPassword);
+            User myUser = new User(userEmail, userName, userPhone, userNatId, userBirthDate, userPassword);
 
             Auth auth = new Auth();
             int signUpResult = auth.SignUp(myUser);
@@ -44,6 +44,9 @@ namespace flight_project
             if (signUpResult == 0)
             {
                 MessageBox.Show("You signed up successfully");
+                signinform signinform = new signinform();
+                signinform.Show();
+                this.Hide();
             }
             else
             {

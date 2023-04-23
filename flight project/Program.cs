@@ -23,14 +23,6 @@ namespace flight_project
 
             Application.Run(new signinform());
 
-            if (Authanticated)
-            {
-                Application.Run(new UserForm());
-            }
-            else
-            {
-                MessageBox.Show("Faild to load Programe..!");
-            }
         }
     }
 }

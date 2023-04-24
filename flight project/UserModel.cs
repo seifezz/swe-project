@@ -47,6 +47,7 @@ namespace flight_project
                 public int cardId;
                 public int passNum;
                 public string clientName;
+                public string expiredate;
             };
             //user info
             public string name;
@@ -167,22 +168,29 @@ namespace flight_project
 
             if (updateCardNumberInUserInfo(card.cardId, email))
             {
+                string expiredatearr = card.expirydate.Split(' ')[0];
+
+                string expiredate = Convert.ToDateTime(expiredatearr).ToString("dd-MM-yyyy");
 
                 OracleCommand cmd = new OracleCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = "INSERT INTO cardinfo (cardnumber,pass,clientname) values ((SELECT cardnumber FROM userinfo WHERE email = :email),:pass,:clientname)";
+                //(SELECT cardnumber FROM userinfo WHERE email = :email)
+                cmd.CommandText = "INSERT INTO cardinfo (cardnumber,pass,clientname ,expiredate ) values ((SELECT cardnumber FROM userinfo WHERE email = :email) ,:pass,:clientname ,TO_DATE(:expiredate, 'DD/MM/YYYY') )";//,:TO_DATE(:expiredate, 'DD/MM/YYYY')  ,expiredate
                 cmd.CommandType = System.Data.CommandType.Text;
+
                 cmd.Parameters.Add("email", email);
                 cmd.Parameters.Add("pass", card.passNum);
                 cmd.Parameters.Add("clientname", card.clientName);
+                cmd.Parameters.Add("expiredate", expiredate);
                 int r = -1;
 
                 try
                 {
                     r = cmd.ExecuteNonQuery();
                 }
-                catch (Exception)
+                catch (Exception err)
                 {
+                    throw (err);
                     return false;
                 }
 
@@ -229,7 +237,7 @@ namespace flight_project
                 if (dr.Read())
 
                 {
-                    card = new cards(Convert.ToInt32(dr[0]), Convert.ToInt32(dr[1]), dr[2].ToString());
+                    card = new cards(Convert.ToInt32(dr[0]), Convert.ToInt32(dr[1]), dr[2].ToString() ,dr[3].ToString());
                     return card;
                 }
                 else
@@ -242,70 +250,80 @@ namespace flight_project
                 return null;
             }
         }
-        public bool UpdateInfo(string email, dataToBeUpdated newData, UserModel.dataToBeUpdated.cardInfo cardInfo, bool availcredit)
+        public bool UpdateInfo(string email, dataToBeUpdated newData)
         {
+
+            string userBirthDateArr = newData.age.Split(' ')[0];
+
+            string userBirthDate = Convert.ToDateTime(userBirthDateArr).ToString("dd-MM-yyyy");
+
+
             int r = -1, x = -1;
             bool status = false;
-            updateCardNumberInUserInfo(cardInfo.cardId, email);
+            //updateCardNumberInUserInfo(cardInfo.cardId, email);
             OracleCommand cmd = new OracleCommand();
             OracleCommand cmd2 = new OracleCommand();
             cmd.Connection = conn;
             cmd2.Connection = conn;
             //userinfo
-            cmd.CommandText = "UPDATE userinfo SET email= :newEmail,username= :newUserName , phone= :newPhone , password= :newPassword , age= :newAge   WHERE email=:email";
-            cmd.Parameters.Add("newEmail", newData.email);
-            cmd.Parameters.Add("newUserName", newData.name);
-            cmd.Parameters.Add("newPhone", newData.phoneNumber);
-            cmd.Parameters.Add("newPassword", newData.password);
-            cmd.Parameters.Add("newAge", newData.age);
+     
+                cmd.CommandText = "UPDATE userinfo SET email= :newEmail,username= :newUserName , phone= :newPhone , password= :newPassword , age=TO_DATE(:age, 'DD/MM/YYYY')   WHERE email=:email";
+                cmd.Parameters.Add("newEmail", newData.email);
+                cmd.Parameters.Add("newUserName", newData.name);
+                cmd.Parameters.Add("newPhone", newData.phoneNumber);
+                cmd.Parameters.Add("newPassword", newData.password);
+                cmd.Parameters.Add("newAge", userBirthDate);
 
-            cmd.Parameters.Add("email", email);
-            //cardinfo
+                cmd.Parameters.Add("email", email);
 
-            if (availcredit)
+            try
             {
-                cmd2.CommandText = "UPDATE cardinfo SET pass=:newPass, clientname=:newClientName WHERE cardnumber =:cardNumber";
-                cmd2.Parameters.Add("newPass", cardInfo.passNum);
-                cmd2.Parameters.Add("newClientName", cardInfo.clientName);
-                cmd2.Parameters.Add("cardNumber", getCardInfoByemail(email).cardId);
-                try
-                {
-                    r = cmd.ExecuteNonQuery();
-                    x = cmd2.ExecuteNonQuery();
+                r = cmd.ExecuteNonQuery();
 
-                }
-                catch (Exception err)
-                {
-                    status = false;
-                    throw (err);
-                }
-                if (r != -1 && x != -1)
-                {
-
-                    status = true;
-
-                }
-                return status;
             }
-            else
+            catch (Exception err)
             {
-                try
-                {
-                    r = cmd.ExecuteNonQuery();
-
-                }
-                catch (Exception err)
-                {
-                    status = false;
-                    throw (err);
-                }
-                if (r != -1)
-                {
-                    status = true;
-                }
-                return status;
+                status = false;
+                throw (err);
             }
+            if (r != -1)
+            {
+                status = true;
+            }
+            return status;
+           
 
+        }
+
+        public bool updatecardinfo (string email , UserModel.dataToBeUpdated.cardInfo cardinfo)
+        {
+            //updateCardNumberInUserInfo(cardinfo.cardId, email);
+
+            string expiredatearr = cardinfo.expiredate.Split(' ')[0];
+
+            string expiredate = Convert.ToDateTime(expiredatearr).ToString("dd-MM-yyyy");
+
+            OracleCommand cmd2 = new OracleCommand();
+            cmd2.Connection = conn;
+
+            cmd2.CommandText = "UPDATE cardinfo SET expiredate=:TO_DATE(:age, 'DD/MM/YYYY') , clientname=:newClientName  WHERE cardnumber =:cardNumber";
+            cmd2.Parameters.Add("expiredate",expiredate );
+            cmd2.Parameters.Add("newClientName", cardinfo.clientName);
+            cmd2.Parameters.Add("cardNumber", getCardInfoByemail(email).cardId);
+
+            
+
+            try
+            {
+                int x = cmd2.ExecuteNonQuery();
+                return true;
+            }
+            catch(Exception err)
+            {
+                throw (err);
+                return false;
+                
+            }
         }
 
         ~UserModel()
@@ -320,12 +338,14 @@ namespace flight_project
         public int cardId;
         public int passNum;
         public string clientName;
+        public string expirydate;
 
-        public cards(int cardId, int passNum, string clientName)
+        public cards(int cardId, int passNum, string clientName ,string expirydate )
         {
             this.cardId = cardId;
             this.clientName = clientName;
             this.passNum = passNum;
+            this.expirydate = expirydate;
         }
     }
 

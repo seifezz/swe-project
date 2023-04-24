@@ -26,18 +26,21 @@ namespace flight_project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Program.Authanticated)
-            {
-                createcard cardForm = new createcard();
-                cardForm.Show();
-                this.Hide();
-
-            }
+            createcard createcard = new createcard();
+            createcard.Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             updateinfo update = new updateinfo();
+            update.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            updatecardinfo update = new updatecardinfo();
             update.Show();
             this.Hide();
         }

@@ -69,10 +69,17 @@ namespace flight_project
                 return 3;
             }
 
-            DateTime userBirhtDate = Convert.ToDateTime(user.age);
-            TimeSpan userAge = DateTime.Now.Subtract(userBirhtDate);
 
-            if (userAge.TotalDays / 365 < 18)
+
+            //DateTime userBirhtDate = Convert.ToDateTime(user.age);
+            //TimeSpan userAge = DateTime.Now.Subtract(userBirhtDate);
+
+            //if (userAge.TotalDays / 365 < 18)
+            //{
+            //    return 4;
+            //}
+
+            if (validage(user.age)==false)
             {
                 return 4;
             }
@@ -103,6 +110,19 @@ namespace flight_project
             string hashedString = Convert.ToBase64String(hashed);
 
             return hashedString;
+
+        }
+
+        public bool validage (string age)
+        {
+            DateTime userBirhtDate = Convert.ToDateTime(age);
+            TimeSpan userAge = DateTime.Now.Subtract(userBirhtDate);
+
+            if (userAge.TotalDays / 365 < 18)
+            {
+                return false;
+            }
+            return true;
 
         }
 

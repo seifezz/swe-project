@@ -1,0 +1,28 @@
+Drop table userinfo cascade constraints;
+Drop table flightinfo cascade constraints;
+Drop table bookedflight cascade constraints;
+Drop table cardinfo cascade constraints;
+Drop table historyinfo  cascade constraints;
+
+create table userinfo 
+(email varchar2(30) unique , username varchar2(20) , phone varchar2(15), nationalid varchar2(20) primary key,
+age date NOT NULL  , password varchar2(256) not null, historyflightid number(20) , cardnumber number(14) unique);
+
+
+
+create table flightinfo
+(flightid number primary key , destination varchar2(20) , leaving varchar2(20),discount number(2,2),
+numberofseat number(5) , classtype varchar2(1) , flightprice number(20) , flightdate date);
+
+
+create table bookedflight 
+(flightid number(20) references flightinfo (flightid)  , nationalid varchar2(20)references userinfo (nationalid), count number (4) );
+
+
+create table cardinfo 
+(cardnumber number(14) references userinfo (cardnumber) , pass number(3) , clientname varchar2(30) , expiredate date);
+
+create table historyinfo 
+(flightid number(20) references flightinfo (flightid) , nationalid varchar2(20)references userinfo (nationalid));
+
+commit ;

@@ -77,6 +77,12 @@
     <Compile Include="SignupForm.Designer.cs">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="updatecardinfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updatecardinfo.Designer.cs">
+      <DependentUpon>updatecardinfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="updateinfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="SignupForm.resx">
       <DependentUpon>SignupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updatecardinfo.resx">
+      <DependentUpon>updatecardinfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="updateinfo.resx">
       <DependentUpon>updateinfo.cs</DependentUpon>

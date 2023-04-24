@@ -37,6 +37,8 @@ namespace flight_project
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.date = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cardPassTextBox
@@ -58,12 +60,13 @@ namespace flight_project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(464, 411);
+            this.button1.Location = new System.Drawing.Point(500, 480);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(167, 51);
             this.button1.TabIndex = 13;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // CardNameTextBox
             // 
@@ -110,11 +113,32 @@ namespace flight_project
             this.label1.Text = "Add credit Card";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // date
+            // 
+            this.date.Location = new System.Drawing.Point(511, 401);
+            this.date.Margin = new System.Windows.Forms.Padding(4);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(281, 22);
+            this.date.TabIndex = 52;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(338, 401);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 20);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "expiry date";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // createcard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 543);
+            this.Controls.Add(this.date);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cardPassTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -140,5 +164,7 @@ namespace flight_project
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker date;
+        private System.Windows.Forms.Label label5;
     }
 }

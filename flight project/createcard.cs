@@ -24,9 +24,22 @@ namespace flight_project
 
         private void button1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void createCard_Load(object sender, EventArgs e)
+        {
+            cardPassTextBox.Text = "enter your Password...";
+            CardNameTextBox.Text = "enter Card holder Name...";
+            CardNumberTextBox.Text = "enter Card number";
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
             UserForm home = new UserForm();
             UserModel func = new UserModel();
-            cards newCard = new cards(Convert.ToInt32(CardNumberTextBox.Text), Convert.ToInt32(cardPassTextBox.Text), CardNameTextBox.Text);
+
+
+            cards newCard = new cards(Convert.ToInt32(CardNumberTextBox.Text), Convert.ToInt32(cardPassTextBox.Text), CardNameTextBox.Text, date.Value.ToString());
             bool isAdded = func.createCardInfo(newCard, Program.globaleEmail);
             if (isAdded)
             {
@@ -39,13 +52,6 @@ namespace flight_project
                 MessageBox.Show("Failed to Add !");
                 this.Refresh();
             }
-        }
-
-        private void createCard_Load(object sender, EventArgs e)
-        {
-            cardPassTextBox.Text = "enter your Password...";
-            CardNameTextBox.Text = "enter Card holder Name...";
-            CardNumberTextBox.Text = "enter Card number";
         }
     }
 }

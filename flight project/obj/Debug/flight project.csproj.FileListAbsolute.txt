@@ -80,3 +80,5 @@ D:\swe-project\flight project\bin\Debug\Oracle.DataAccess.dll
 D:\swe-project\flight project\obj\Debug\flight project.csproj.CopyComplete
 D:\FCIS\3rd Year\6th Semester\Software Engineering\Project\Code\swe-project\flight project\obj\Debug\flight_project.createcard.resources
 D:\FCIS\3rd Year\6th Semester\Software Engineering\Project\Code\swe-project\flight project\obj\Debug\flight_project.updateinfo.resources
+D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight_project.createcard.resources
+D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight_project.updateinfo.resources

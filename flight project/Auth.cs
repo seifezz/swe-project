@@ -28,10 +28,11 @@ namespace flight_project
             UserModel userModel = new UserModel();
             User myUser = userModel.getUserByEmail(email);
 
+            string hashedPass = HashPassword(pass, SALT);
 
             if (myUser != null)
             {
-                if (myUser.password == pass)
+                if (myUser.password == hashedPass)
                 {
                     isLoged = true;
 
@@ -76,8 +77,8 @@ namespace flight_project
                 return 4;
             }
 
-            /*string hashedPassword = HashPassword(user.password, SALT);
-            user.password = hashedPassword;*/
+            string hashedPassword = HashPassword(user.password, SALT);
+            user.password = hashedPassword;
 
             UserModel userModel = new UserModel(user);
             bool creationStatue = userModel.createUser();
@@ -95,11 +96,11 @@ namespace flight_project
 
         private string HashPassword(string password, string salt)
         {
-            byte[] buffer = System.Text.Encoding.UTF8.GetBytes(password + salt);
+            byte[] buffer = Encoding.UTF8.GetBytes(password + salt);
             System.Security.Cryptography.SHA256Managed SHA256 = new System.Security.Cryptography.SHA256Managed();
             byte[] hashed = SHA256.ComputeHash(buffer);
 
-            string hashedString = System.Text.Encoding.UTF8.GetString(hashed);
+            string hashedString = Convert.ToBase64String(hashed);
 
             return hashedString;
 

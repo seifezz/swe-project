@@ -26,7 +26,6 @@ namespace flight_project
             User user = func.getUserByEmail(Program.globaleEmail);
             nameTextBox.Text = user.name.ToString();
             emailTextBox.Text = user.email.ToString();
-            //passwordTextBox.Text = user.password.ToString();
             PhonenumberTextBox.Text = user.phoneNumber.ToString();
             DateTime dateValue = DateTime.Parse(user.age);
             date.Value = dateValue;
@@ -68,13 +67,13 @@ namespace flight_project
             newData.phoneNumber = PhonenumberTextBox.Text.ToString();
             // validating password
        
-            if (Validator.validatePassowrd(passwordTextBox.Text.ToString()))
-            { newData.password = passwordTextBox.Text.ToString(); }
-            else
-            {
-                MessageBox.Show("Not Valid Password");
-                this.Refresh();
-            }
+            //if (Validator.validatePassowrd(passwordTextBox.Text.ToString()))
+            //{ newData.password = passwordTextBox.Text.ToString(); }
+            //else
+            //{
+            //    MessageBox.Show("Not Valid Password");
+            //    this.Refresh();
+            //}
 
             status = func.UpdateInfo(Program.globaleEmail, newData);
 
@@ -96,5 +95,33 @@ namespace flight_project
         {
 
         }
+
+        private void btn_passupdate_Click(object sender, EventArgs e)
+        {
+            UserModel func = new UserModel();
+            bool status = false;
+            string newpass="";
+            
+           
+            // validating password
+
+            if (Validator.validatePassowrd(passwordTextBox.Text.ToString()))
+            { newpass = passwordTextBox.Text.ToString(); }
+            else
+            {
+                MessageBox.Show("Not Valid Password");
+                this.Refresh();
+            }
+
+            status = func.Updatepassword(Program.globaleEmail, newpass);
+
+            if (status)
+            {
+                MessageBox.Show("password updated successfly");
+            }
+            else
+                MessageBox.Show("can't update please try again ");
+        }
     }
+    
 }

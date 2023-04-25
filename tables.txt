@@ -20,7 +20,7 @@ create table bookedflight
 
 
 create table cardinfo 
-(cardnumber number(14) references userinfo (cardnumber) , pass number(3) , clientname varchar2(30) , expiredate date);
+(cardnumber number(14) references userinfo (cardnumber), clientname varchar2(30) , expiredate date);
 
 create table historyinfo 
 (flightid number(20) references flightinfo (flightid) , nationalid varchar2(20)references userinfo (nationalid));

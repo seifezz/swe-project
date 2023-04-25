@@ -29,8 +29,6 @@ namespace flight_project
         /// </summary>
         private void InitializeComponent()
         {
-            this.cardPassTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.CardNameTextBox = new System.Windows.Forms.TextBox();
             this.CardNumberTextBox = new System.Windows.Forms.TextBox();
@@ -41,26 +39,9 @@ namespace flight_project
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // cardPassTextBox
-            // 
-            this.cardPassTextBox.Location = new System.Drawing.Point(559, 337);
-            this.cardPassTextBox.Name = "cardPassTextBox";
-            this.cardPassTextBox.Size = new System.Drawing.Size(222, 22);
-            this.cardPassTextBox.TabIndex = 15;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(338, 337);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(193, 20);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "card password (4 dig)";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(500, 480);
+            this.button1.Location = new System.Drawing.Point(476, 433);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(167, 51);
             this.button1.TabIndex = 13;
@@ -115,7 +96,7 @@ namespace flight_project
             // 
             // date
             // 
-            this.date.Location = new System.Drawing.Point(511, 401);
+            this.date.Location = new System.Drawing.Point(559, 358);
             this.date.Margin = new System.Windows.Forms.Padding(4);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(281, 22);
@@ -125,7 +106,7 @@ namespace flight_project
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(338, 401);
+            this.label5.Location = new System.Drawing.Point(338, 360);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 20);
             this.label5.TabIndex = 51;
@@ -139,8 +120,6 @@ namespace flight_project
             this.ClientSize = new System.Drawing.Size(1119, 543);
             this.Controls.Add(this.date);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cardPassTextBox);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.CardNameTextBox);
             this.Controls.Add(this.CardNumberTextBox);
@@ -155,9 +134,6 @@ namespace flight_project
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox cardPassTextBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox CardNameTextBox;
         private System.Windows.Forms.TextBox CardNumberTextBox;

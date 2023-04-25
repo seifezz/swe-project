@@ -28,7 +28,6 @@ namespace flight_project
 
         private void createCard_Load(object sender, EventArgs e)
         {
-            cardPassTextBox.Text = "enter your Password...";
             CardNameTextBox.Text = "enter Card holder Name...";
             CardNumberTextBox.Text = "enter Card number";
         }
@@ -39,7 +38,7 @@ namespace flight_project
             UserModel func = new UserModel();
 
 
-            cards newCard = new cards(Convert.ToInt32(CardNumberTextBox.Text), Convert.ToInt32(cardPassTextBox.Text), CardNameTextBox.Text, date.Value.ToString());
+            cards newCard = new cards(Convert.ToInt32(CardNumberTextBox.Text), CardNameTextBox.Text, date.Value.ToString());
             bool isAdded = func.createCardInfo(newCard, Program.globaleEmail);
             if (isAdded)
             {

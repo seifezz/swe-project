@@ -41,11 +41,12 @@ namespace flight_project
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.date = new System.Windows.Forms.DateTimePicker();
+            this.btn_passupdate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // updateBtn
             // 
-            this.updateBtn.Location = new System.Drawing.Point(851, 535);
+            this.updateBtn.Location = new System.Drawing.Point(654, 338);
             this.updateBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.updateBtn.Name = "updateBtn";
             this.updateBtn.Size = new System.Drawing.Size(196, 42);
@@ -64,7 +65,7 @@ namespace flight_project
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(244, 202);
+            this.passwordTextBox.Location = new System.Drawing.Point(244, 446);
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(281, 22);
@@ -72,7 +73,7 @@ namespace flight_project
             // 
             // PhonenumberTextBox
             // 
-            this.PhonenumberTextBox.Location = new System.Drawing.Point(244, 245);
+            this.PhonenumberTextBox.Location = new System.Drawing.Point(244, 202);
             this.PhonenumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PhonenumberTextBox.Name = "PhonenumberTextBox";
             this.PhonenumberTextBox.Size = new System.Drawing.Size(281, 22);
@@ -111,7 +112,7 @@ namespace flight_project
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(83, 242);
+            this.label4.Location = new System.Drawing.Point(83, 199);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 20);
             this.label4.TabIndex = 23;
@@ -122,7 +123,7 @@ namespace flight_project
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(83, 202);
+            this.label3.Location = new System.Drawing.Point(83, 446);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 20);
             this.label3.TabIndex = 22;
@@ -133,7 +134,7 @@ namespace flight_project
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(83, 284);
+            this.label2.Location = new System.Drawing.Point(83, 241);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 20);
             this.label2.TabIndex = 21;
@@ -153,17 +154,29 @@ namespace flight_project
             // 
             // date
             // 
-            this.date.Location = new System.Drawing.Point(244, 284);
+            this.date.Location = new System.Drawing.Point(244, 241);
             this.date.Margin = new System.Windows.Forms.Padding(4);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(281, 22);
             this.date.TabIndex = 39;
+            // 
+            // btn_passupdate
+            // 
+            this.btn_passupdate.Location = new System.Drawing.Point(654, 507);
+            this.btn_passupdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_passupdate.Name = "btn_passupdate";
+            this.btn_passupdate.Size = new System.Drawing.Size(196, 42);
+            this.btn_passupdate.TabIndex = 40;
+            this.btn_passupdate.Text = "Update password";
+            this.btn_passupdate.UseVisualStyleBackColor = true;
+            this.btn_passupdate.Click += new System.EventHandler(this.btn_passupdate_Click);
             // 
             // updateinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1115, 585);
+            this.Controls.Add(this.btn_passupdate);
             this.Controls.Add(this.date);
             this.Controls.Add(this.updateBtn);
             this.Controls.Add(this.emailTextBox);
@@ -200,5 +213,6 @@ namespace flight_project
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker date;
+        private System.Windows.Forms.Button btn_passupdate;
     }
 }

@@ -30,6 +30,7 @@ namespace flight_project
 
         private void updateBtn_Click(object sender, EventArgs e)
         {
+            bool updated = false;
             UserModel.dataToBeUpdated.cardInfo cardInfo = new UserModel.dataToBeUpdated.cardInfo();
             UserModel func = new UserModel();
 
@@ -37,7 +38,16 @@ namespace flight_project
             cardInfo.clientName = clientNameTextBox.Text;
             cardInfo.expiredate = date.Value.ToString();
 
-            func.updatecardinfo(Program.globaleEmail, cardInfo);
+            updated =func.updatecardinfo(Program.globaleEmail, cardInfo);
+
+            if (updated)
+            {
+                MessageBox.Show("updated successfly");
+            }
+            else
+            {
+                MessageBox.Show("please try again ");
+            }
         }
 
         private void cardbox_SelectedIndexChanged(object sender, EventArgs e)

@@ -29,5 +29,19 @@ namespace flight_project
         {
             Process.GetCurrentProcess().Kill();
         }
+
+        private void editflightinfo_Click(object sender, EventArgs e)
+        {
+            Updateflightform updateflightform = new Updateflightform();
+            updateflightform.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            signinform signin = new signinform();
+            signin.Show();
+            this.Hide();
+        }
     }
 }

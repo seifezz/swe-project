@@ -85,3 +85,4 @@ D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight
 D:\swe-project\flight project\obj\Debug\flight_project.updatecardinfo.resources
 D:\FCIS\3rd Year\6th Semester\Software Engineering\Project\Code\swe-project\flight project\obj\Debug\flight_project.updatecardinfo.resources
 D:\FCIS\3rd Year\6th Semester\Software Engineering\Project\Code\swe-project\flight project\obj\Debug\flight_project.Addflightform.resources
+D:\FCIS\3rd Year\6th Semester\Software Engineering\Project\Code\swe-project\flight project\obj\Debug\flight_project.Updateflightform.resources

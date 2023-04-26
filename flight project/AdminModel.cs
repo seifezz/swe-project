@@ -13,15 +13,17 @@ namespace flight_project
 {
     class AdminModel
     {
-        OracleDataAdapter adapter = new OracleDataAdapter();
+        OracleDataAdapter adapter;
         OracleCommandBuilder builder;
         DataSet ds;
         string constr = "Data Source=orcl; User Id=scott;Password=tiger;";
         string cmdstr = "";
+
         public int getlastid()
         {
 
             cmdstr = "select max(FLIGHTID) from FLIGHTINFO";
+            adapter = new OracleDataAdapter(cmdstr, constr);
             adapter.SelectCommand = new OracleCommand(cmdstr, new OracleConnection(constr));
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
@@ -34,6 +36,7 @@ namespace flight_project
                 return 0;
             }
         }
+
         public bool InsertFlight(string dest, string leaving, float discount, int noofseats, char classtype, float price, string date)
         {
             cmdstr = "INSERT INTO FLIGHTINFO (FLIGHTID,DESTINATION,LEAVING,DISCOUNT,NUMBEROFSEAT,CLASSTYPE,FLIGHTPRICE,FLIGHTDATE) VALUES " +
@@ -69,5 +72,22 @@ namespace flight_project
                 return false;
             }
         }
+
+        public DataTable loadinfo()
+        {
+            cmdstr = "select * from flightinfo";
+            adapter = new OracleDataAdapter(cmdstr, constr);
+            ds = new DataSet();
+            adapter.Fill(ds);
+            return ds.Tables[0];
+        }
+
+        public void saveinfo(DataTable dt)
+        {
+            builder = new OracleCommandBuilder(adapter);
+            adapter.Update(dt);
+        }
+
+
     }
 }

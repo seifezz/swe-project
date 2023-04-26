@@ -103,16 +103,19 @@ namespace flight_project
 
 
             // validating password
-
-            if (Validator.validatePassowrd(passwordTextBox.Text.ToString()))
-            { newpass = passwordTextBox.Text.ToString(); }
+           
+            
+            if (!string.IsNullOrEmpty(passwordTextBox.Text) && Validator.validatePassowrd(passwordTextBox.Text.ToString()))
+            { 
+                newpass = passwordTextBox.Text.ToString(); 
+                status = func.Updatepassword(Program.globaleEmail, newpass);
+            }
             else
             {
                 MessageBox.Show("Not Valid Password");
                 this.Refresh();
             }
 
-            status = func.Updatepassword(Program.globaleEmail, newpass);
 
             if (status)
             {

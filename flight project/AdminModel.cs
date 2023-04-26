@@ -19,7 +19,7 @@ namespace flight_project
         string constr = "Data Source=orcl; User Id=scott;Password=tiger;";
         string cmdstr = "";
 
-        public int getlastid()
+        public int Getlastid()
         {
 
             cmdstr = "select max(FLIGHTID) from FLIGHTINFO";
@@ -45,8 +45,10 @@ namespace flight_project
             try
             {
                 conn.Open();
-                OracleCommand command = new OracleCommand(cmdstr, conn);
-                command.Parameters.Add(":value1", getlastid() + 1);
+                OracleCommand command = new OracleCommand();
+                command.Connection = conn;
+                command.CommandText = cmdstr;
+                command.Parameters.Add(":value1", Getlastid() + 1);
                 command.Parameters.Add(":value2", dest);
                 command.Parameters.Add(":value3", leaving);
                 command.Parameters.Add(":value4", discount);
@@ -73,7 +75,7 @@ namespace flight_project
             }
         }
 
-        public DataTable loadinfo()
+        public DataTable Loadinfo()
         {
             cmdstr = "select * from flightinfo";
             adapter = new OracleDataAdapter(cmdstr, constr);
@@ -82,7 +84,7 @@ namespace flight_project
             return ds.Tables[0];
         }
 
-        public void saveinfo(DataTable dt)
+        public void Saveinfo(DataTable dt)
         {
             builder = new OracleCommandBuilder(adapter);
             adapter.Update(dt);

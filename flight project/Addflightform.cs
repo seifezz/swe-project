@@ -34,23 +34,32 @@ namespace flight_project
 
         private void addbtn_Click(object sender, EventArgs e)
         {
-            string userBirthDateArr = dateTimePicker1.Value.ToString().Split(' ')[0];
-            string userBirthDate = Convert.ToDateTime(userBirthDateArr).ToString("dd-MM-yyyy");
-
-            bool x = adminModel.InsertFlight(textBox1.Text.ToString(), textBox2.Text.ToString(), float.Parse(textBox3.Text.ToString()),
-             Convert.ToInt32(textBox4.Text.ToString()), Convert.ToChar(textBox5.Text.ToString()), float.Parse(textBox6.Text.ToString()),
-             userBirthDate);
-            if (x)
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || textBox5.Text == "" || textBox6.Text == "")
             {
-                foreach (Control control in this.Controls)
-                {
-                    if (control is TextBox)
-                    {
-                        ((TextBox)control).Text = "";
-                    }
-                }
-                dateTimePicker1.Value = DateTime.Today;
+                MessageBox.Show("Please Fill All Values");
             }
+            else
+            {
+                string userBirthDateArr = dateTimePicker1.Value.ToString().Split(' ')[0];
+                string userBirthDate = Convert.ToDateTime(userBirthDateArr).ToString("dd-MM-yyyy");
+
+                bool x = adminModel.InsertFlight(textBox1.Text.ToString(), textBox2.Text.ToString(), float.Parse(textBox3.Text.ToString()),
+                 Convert.ToInt32(textBox4.Text.ToString()), Convert.ToChar(textBox5.Text.ToString()), float.Parse(textBox6.Text.ToString()),
+                 userBirthDate);
+
+                if (x)
+                {
+                    foreach (Control control in this.Controls)
+                    {
+                        if (control is TextBox)
+                        {
+                            ((TextBox)control).Text = "";
+                        }
+                    }
+                    dateTimePicker1.Value = DateTime.Today;
+                }
+            }
+
         }
     }
 }

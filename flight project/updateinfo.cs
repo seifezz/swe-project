@@ -13,7 +13,6 @@ namespace flight_project
 {
     public partial class updateinfo : Form
     {
-        bool availcredit = false;
         public updateinfo()
         {
             InitializeComponent();
@@ -31,7 +30,7 @@ namespace flight_project
             date.Value = dateValue;
 
 
-           
+
         }
 
         private void updateBtn_Click(object sender, EventArgs e)
@@ -62,11 +61,11 @@ namespace flight_project
                 MessageBox.Show("Not valid age ");
             }
 
-           
+
             newData.name = nameTextBox.Text.ToString();
             newData.phoneNumber = PhonenumberTextBox.Text.ToString();
             // validating password
-       
+
             //if (Validator.validatePassowrd(passwordTextBox.Text.ToString()))
             //{ newData.password = passwordTextBox.Text.ToString(); }
             //else
@@ -100,9 +99,9 @@ namespace flight_project
         {
             UserModel func = new UserModel();
             bool status = false;
-            string newpass="";
-            
-           
+            string newpass = "";
+
+
             // validating password
 
             if (Validator.validatePassowrd(passwordTextBox.Text.ToString()))
@@ -123,5 +122,5 @@ namespace flight_project
                 MessageBox.Show("can't update please try again ");
         }
     }
-    
+
 }

@@ -50,12 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Addflightform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Addflightform.Designer.cs">
+      <DependentUpon>Addflightform.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminModel.cs" />
     <Compile Include="Auth.cs" />
     <Compile Include="createcard.cs">
       <SubType>Form</SubType>
@@ -97,6 +104,9 @@
     </Compile>
     <Compile Include="UserModel.cs" />
     <Compile Include="Validator.cs" />
+    <EmbeddedResource Include="Addflightform.resx">
+      <DependentUpon>Addflightform.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>

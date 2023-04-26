@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace flight_project
@@ -38,7 +39,7 @@ namespace flight_project
             cardInfo.clientName = clientNameTextBox.Text;
             cardInfo.expiredate = date.Value.ToString();
 
-            updated =func.updatecardinfo(Program.globaleEmail, cardInfo);
+            updated = func.updatecardinfo(Program.globaleEmail, cardInfo);
 
             if (updated)
             {
@@ -50,8 +51,11 @@ namespace flight_project
             }
         }
 
-        private void cardbox_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void updatecardinfo_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Process.GetCurrentProcess().Kill();
         }
     }
 }

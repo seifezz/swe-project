@@ -18,6 +18,13 @@ namespace flight_project
             InitializeComponent();
         }
 
+        private void addflightbtn_Click(object sender, EventArgs e)
+        {
+            Addflightform addflightform = new Addflightform();
+            addflightform.Show();
+            this.Hide();
+        }
+
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Process.GetCurrentProcess().Kill();

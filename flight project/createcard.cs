@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -51,6 +52,11 @@ namespace flight_project
                 MessageBox.Show("Failed to Add !");
                 this.Refresh();
             }
+        }
+
+        private void createcard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Process.GetCurrentProcess().Kill();
         }
     }
 }

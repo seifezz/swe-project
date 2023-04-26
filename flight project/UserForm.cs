@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace flight_project
@@ -42,6 +35,13 @@ namespace flight_project
         {
             updatecardinfo update = new updatecardinfo();
             update.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            cancelflight cancel = new cancelflight();
+            cancel.Show();
             this.Hide();
         }
     }

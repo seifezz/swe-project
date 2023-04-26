@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Windows.Forms;
-using Oracle.DataAccess.Client;
-using Oracle.DataAccess.Types;
 
 
 namespace flight_project
@@ -363,7 +358,37 @@ namespace flight_project
 
             }
         }
+        public bool cancelflight(int id)
+        {
+            int r;
+            bool check = false;
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
 
+            cmd.CommandText = "Delete from BOOKEDFLIGHT where FLIGHTID= :id";
+            cmd.Parameters.Add("id", id);
+            //r = cmd.ExecuteNonQuery();
+            try
+            {
+                r = cmd.ExecuteNonQuery();
+            }
+            catch (Exception err)
+            {
+                check = false;
+                throw (err);
+            }
+            if (r > 0)
+            {
+                check = true;
+                MessageBox.Show("cancelled sucessfully");
+            }
+            else
+            {
+                check = false;
+                MessageBox.Show("Not Found");
+            }
+            return check;
+        }
         ~UserModel()
         {
             conn.Dispose();

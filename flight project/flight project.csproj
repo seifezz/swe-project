@@ -99,6 +99,12 @@
     <Compile Include="createcard.Designer.cs">
       <DependentUpon>createcard.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditFlight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditFlight.Designer.cs">
+      <DependentUpon>EditFlight.cs</DependentUpon>
+    </Compile>
     <Compile Include="SigninForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="createcard.resx">
       <DependentUpon>createcard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditFlight.resx">
+      <DependentUpon>EditFlight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SigninForm.resx">
       <DependentUpon>SigninForm.cs</DependentUpon>

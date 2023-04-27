@@ -105,3 +105,8 @@ D:\gam3aaa\3rd Year\2nd term\sw\project\swe-project\flight project\obj\Debug\fli
 D:\gam3aaa\3rd Year\2nd term\sw\project\swe-project\flight project\obj\Debug\flight project.csproj.CopyComplete
 D:\gam3aaa\3rd Year\2nd term\sw\project\swe-project\flight project\obj\Debug\flight project.exe
 D:\gam3aaa\3rd Year\2nd term\sw\project\swe-project\flight project\obj\Debug\flight project.pdb
+D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight_project.Addflightform.resources
+D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight_project.cancelflight.resources
+D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight_project.updatecardinfo.resources
+D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight_project.Updateflightform.resources
+D:\FCIS\Sixth Semester\SWE\Project 2\swe-project\flight project\obj\Debug\flight_project.EditFlight.resources

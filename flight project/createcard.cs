@@ -23,10 +23,6 @@ namespace flight_project
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
         private void createCard_Load(object sender, EventArgs e)
         {
             CardNameTextBox.Text = "enter Card holder Name...";
@@ -35,7 +31,6 @@ namespace flight_project
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            UserForm home = new UserForm();
             UserModel func = new UserModel();
 
 
@@ -44,8 +39,7 @@ namespace flight_project
             if (isAdded)
             {
                 MessageBox.Show("successfully added...!");
-                home.Show();
-                this.Hide();
+                
             }
             else
             {
@@ -57,6 +51,13 @@ namespace flight_project
         private void createcard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Process.GetCurrentProcess().Kill();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UserForm form = new UserForm();
+            form.Show();
+            this.Hide();
         }
     }
 }

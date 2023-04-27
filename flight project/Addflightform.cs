@@ -61,5 +61,12 @@ namespace flight_project
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminForm form = new AdminForm();
+            form.Show();
+            this.Hide();
+        }
     }
 }

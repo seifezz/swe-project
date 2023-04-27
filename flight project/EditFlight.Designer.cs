@@ -32,24 +32,25 @@ namespace flight_project
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txt_editflight = new System.Windows.Forms.Label();
             this.btn_apply = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(58, 62);
+            this.dataGridView1.Location = new System.Drawing.Point(58, 97);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(687, 294);
+            this.dataGridView1.Size = new System.Drawing.Size(687, 267);
             this.dataGridView1.TabIndex = 0;
             // 
             // txt_editflight
             // 
             this.txt_editflight.AutoSize = true;
             this.txt_editflight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_editflight.Location = new System.Drawing.Point(53, 19);
+            this.txt_editflight.Location = new System.Drawing.Point(74, 15);
             this.txt_editflight.Name = "txt_editflight";
             this.txt_editflight.Size = new System.Drawing.Size(139, 29);
             this.txt_editflight.TabIndex = 1;
@@ -60,22 +61,36 @@ namespace flight_project
             // 
             this.btn_apply.Location = new System.Drawing.Point(609, 382);
             this.btn_apply.Name = "btn_apply";
-            this.btn_apply.Size = new System.Drawing.Size(136, 23);
+            this.btn_apply.Size = new System.Drawing.Size(136, 44);
             this.btn_apply.TabIndex = 2;
             this.btn_apply.Text = "Apply Changes";
             this.btn_apply.UseVisualStyleBackColor = true;
             this.btn_apply.Click += new System.EventHandler(this.btn_apply_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.BackgroundImage = global::flight_project.Properties.Resources.output_onlinepngtools;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(44, 44);
+            this.button1.TabIndex = 53;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // EditFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_apply);
             this.Controls.Add(this.txt_editflight);
             this.Controls.Add(this.dataGridView1);
             this.Name = "EditFlight";
             this.Text = "EditFlight";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditFlight_FormClosed);
             this.Load += new System.EventHandler(this.EditFlight_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -88,5 +103,6 @@ namespace flight_project
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label txt_editflight;
         private System.Windows.Forms.Button btn_apply;
+        private System.Windows.Forms.Button button1;
     }
 }

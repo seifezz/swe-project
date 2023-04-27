@@ -124,6 +124,13 @@ namespace flight_project
             else
                 MessageBox.Show("can't update please try again ");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserForm form = new UserForm();
+            form.Show();
+            this.Hide();
+        }
     }
 
 }

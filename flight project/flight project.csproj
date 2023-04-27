@@ -105,6 +105,12 @@
     <Compile Include="EditFlight.Designer.cs">
       <DependentUpon>EditFlight.cs</DependentUpon>
     </Compile>
+    <Compile Include="Searchform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Searchform.Designer.cs">
+      <DependentUpon>Searchform.cs</DependentUpon>
+    </Compile>
     <Compile Include="SigninForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditFlight.resx">
       <DependentUpon>EditFlight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Searchform.resx">
+      <DependentUpon>Searchform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SigninForm.resx">
       <DependentUpon>SigninForm.cs</DependentUpon>

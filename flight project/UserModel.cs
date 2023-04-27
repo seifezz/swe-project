@@ -1,5 +1,6 @@
 ﻿using Oracle.DataAccess.Client;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 
@@ -438,6 +439,30 @@ namespace flight_project
 
             }
         }
+
+        public DataTable search(string dest, string leave)
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "select * from flightinfo where  destination= :dest AND leaving= :leave";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("dest", dest);
+            cmd.Parameters.Add("leave", leave);
+            OracleDataReader dr = cmd.ExecuteReader();
+            DataTable datatable = new DataTable();
+            if (dr.HasRows)
+            {
+                datatable.Load(dr);
+            }
+            else
+            {
+                MessageBox.Show("There is No Matched Flights");
+            }
+            dr.Close();
+            return datatable;
+        }
+
+
         ~UserModel()
         {
             conn.Dispose();

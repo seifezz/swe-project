@@ -130,3 +130,7 @@ C:\Users\Seif Hegab\Downloads\swe-project\flight project\obj\Debug\flight projec
 C:\Users\Seif Hegab\Downloads\swe-project\flight project\obj\Debug\flight project.csproj.CoreCompileInputs.cache
 C:\Users\Seif Hegab\Downloads\swe-project\flight project\obj\Debug\flight project.exe
 C:\Users\Seif Hegab\Downloads\swe-project\flight project\obj\Debug\flight project.pdb
+D:\swe-project\flight project\obj\Debug\flight_project.Addflightform.resources
+D:\swe-project\flight project\obj\Debug\flight_project.cancelflight.resources
+D:\swe-project\flight project\obj\Debug\flight_project.EditFlight.resources
+D:\swe-project\flight project\obj\Debug\flight_project.Updateflightform.resources

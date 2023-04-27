@@ -49,6 +49,7 @@ namespace flight_project
             {
                 MessageBox.Show("please try again ");
             }
+
         }
 
 
@@ -56,6 +57,32 @@ namespace flight_project
         private void updatecardinfo_FormClosed(object sender, FormClosedEventArgs e)
         {
             Process.GetCurrentProcess().Kill();
+        }
+
+        private void deletecard_Click(object sender, EventArgs e)
+        {
+            bool updated = false;
+
+            UserModel func = new UserModel();
+
+            if (cardNumTextBox.Text == "")
+            {
+                goto Message;
+            }
+
+            updated = func.deletecardinfo(Program.globaleEmail);
+        Message:
+            if (updated)
+            {
+                MessageBox.Show("deleted successfly");
+                cardNumTextBox.Text = "";
+                clientNameTextBox.Text = "";
+                date.Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("no data to delete ");
+            }
         }
     }
 }

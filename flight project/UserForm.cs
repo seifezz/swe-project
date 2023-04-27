@@ -44,5 +44,21 @@ namespace flight_project
             cancel.Show();
             this.Hide();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            signinform form = new signinform();
+            Program.globaleEmail = "";
+            form.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Searchform sf = new Searchform();
+            sf.Show();
+            this.Hide();
+
+        }
     }
 }

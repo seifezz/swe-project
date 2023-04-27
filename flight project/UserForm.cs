@@ -58,7 +58,6 @@ namespace flight_project
             Searchform sf = new Searchform();
             sf.Show();
             this.Hide();
-
         }
     }
 }

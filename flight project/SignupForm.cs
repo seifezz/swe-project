@@ -89,5 +89,12 @@ namespace flight_project
         {
             Process.GetCurrentProcess().Kill();
         }
+
+        private void nav_signup_Click(object sender, EventArgs e)
+        {
+            signinform form = new signinform();
+            form.Show();
+            this.Hide();
+        }
     }
 }

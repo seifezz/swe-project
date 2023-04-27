@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
@@ -48,6 +49,18 @@ namespace flight_project
             builder = new OracleCommandBuilder(adapter);
             adapter.Update(ds.Tables[0]);
             MessageBox.Show("Data Saved");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminForm form = new AdminForm();
+            form.Show();
+            this.Hide();
+        }
+
+        private void EditFlight_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Process.GetCurrentProcess().Kill();
         }
     }
 }

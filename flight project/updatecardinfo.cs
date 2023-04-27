@@ -84,5 +84,12 @@ namespace flight_project
                 MessageBox.Show("no data to delete ");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserForm form = new UserForm();
+            form.Show();
+            this.Hide();
+        }
     }
 }

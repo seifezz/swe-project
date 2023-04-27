@@ -43,16 +43,16 @@ namespace flight_project
             this.txt_name = new System.Windows.Forms.TextBox();
             this.date = new System.Windows.Forms.DateTimePicker();
             this.btn_signup = new System.Windows.Forms.Button();
+            this.nav_signup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SignUp
             // 
             this.SignUp.AutoSize = true;
             this.SignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SignUp.Location = new System.Drawing.Point(249, 7);
-            this.SignUp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SignUp.Location = new System.Drawing.Point(332, 9);
             this.SignUp.Name = "SignUp";
-            this.SignUp.Size = new System.Drawing.Size(110, 31);
+            this.SignUp.Size = new System.Drawing.Size(139, 39);
             this.SignUp.TabIndex = 0;
             this.SignUp.Text = "Sign Up";
             this.SignUp.Click += new System.EventHandler(this.label1_Click);
@@ -61,10 +61,9 @@ namespace flight_project
             // 
             this.email.AutoSize = true;
             this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email.Location = new System.Drawing.Point(9, 80);
-            this.email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.email.Location = new System.Drawing.Point(12, 98);
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(132, 24);
+            this.email.Size = new System.Drawing.Size(169, 29);
             this.email.TabIndex = 1;
             this.email.Text = "Email Address";
             // 
@@ -72,10 +71,9 @@ namespace flight_project
             // 
             this.birthdate.AutoSize = true;
             this.birthdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthdate.Location = new System.Drawing.Point(9, 230);
-            this.birthdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.birthdate.Location = new System.Drawing.Point(12, 283);
             this.birthdate.Name = "birthdate";
-            this.birthdate.Size = new System.Drawing.Size(90, 24);
+            this.birthdate.Size = new System.Drawing.Size(118, 29);
             this.birthdate.TabIndex = 2;
             this.birthdate.Text = "Birth Date";
             // 
@@ -83,10 +81,9 @@ namespace flight_project
             // 
             this.phone.AutoSize = true;
             this.phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phone.Location = new System.Drawing.Point(9, 193);
-            this.phone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.phone.Location = new System.Drawing.Point(12, 238);
             this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(140, 24);
+            this.phone.Size = new System.Drawing.Size(176, 29);
             this.phone.TabIndex = 3;
             this.phone.Text = "Phone Number";
             // 
@@ -94,10 +91,9 @@ namespace flight_project
             // 
             this.nationalid.AutoSize = true;
             this.nationalid.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nationalid.Location = new System.Drawing.Point(9, 155);
-            this.nationalid.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nationalid.Location = new System.Drawing.Point(12, 191);
             this.nationalid.Name = "nationalid";
-            this.nationalid.Size = new System.Drawing.Size(100, 24);
+            this.nationalid.Size = new System.Drawing.Size(131, 29);
             this.nationalid.TabIndex = 4;
             this.nationalid.Text = "National ID";
             // 
@@ -105,10 +101,9 @@ namespace flight_project
             // 
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name.Location = new System.Drawing.Point(9, 118);
-            this.name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.name.Location = new System.Drawing.Point(12, 145);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(106, 24);
+            this.name.Size = new System.Drawing.Size(135, 29);
             this.name.TabIndex = 5;
             this.name.Text = "Your Name";
             // 
@@ -116,78 +111,91 @@ namespace flight_project
             // 
             this.password.AutoSize = true;
             this.password.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(9, 267);
-            this.password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.password.Location = new System.Drawing.Point(12, 329);
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(92, 24);
+            this.password.Size = new System.Drawing.Size(120, 29);
             this.password.TabIndex = 6;
             this.password.Text = "Password";
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(202, 84);
-            this.txt_email.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_email.Location = new System.Drawing.Point(269, 103);
+            this.txt_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(275, 20);
+            this.txt_email.Size = new System.Drawing.Size(365, 22);
             this.txt_email.TabIndex = 7;
             // 
             // txt_phone
             // 
-            this.txt_phone.Location = new System.Drawing.Point(202, 196);
-            this.txt_phone.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_phone.Location = new System.Drawing.Point(269, 241);
+            this.txt_phone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_phone.Name = "txt_phone";
-            this.txt_phone.Size = new System.Drawing.Size(275, 20);
+            this.txt_phone.Size = new System.Drawing.Size(365, 22);
             this.txt_phone.TabIndex = 8;
             // 
             // txt_password
             // 
-            this.txt_password.Location = new System.Drawing.Point(202, 271);
-            this.txt_password.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_password.Location = new System.Drawing.Point(269, 334);
+            this.txt_password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(275, 20);
+            this.txt_password.Size = new System.Drawing.Size(365, 22);
             this.txt_password.TabIndex = 10;
             // 
             // txt_natid
             // 
-            this.txt_natid.Location = new System.Drawing.Point(202, 158);
-            this.txt_natid.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_natid.Location = new System.Drawing.Point(269, 194);
+            this.txt_natid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_natid.Name = "txt_natid";
-            this.txt_natid.Size = new System.Drawing.Size(275, 20);
+            this.txt_natid.Size = new System.Drawing.Size(365, 22);
             this.txt_natid.TabIndex = 11;
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(202, 121);
-            this.txt_name.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_name.Location = new System.Drawing.Point(269, 149);
+            this.txt_name.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(275, 20);
+            this.txt_name.Size = new System.Drawing.Size(365, 22);
             this.txt_name.TabIndex = 12;
             // 
             // date
             // 
             this.date.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.date.Location = new System.Drawing.Point(203, 234);
-            this.date.Margin = new System.Windows.Forms.Padding(2);
+            this.date.Location = new System.Drawing.Point(271, 288);
+            this.date.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(273, 20);
+            this.date.Size = new System.Drawing.Size(363, 22);
             this.date.TabIndex = 13;
             // 
             // btn_signup
             // 
-            this.btn_signup.Location = new System.Drawing.Point(460, 332);
-            this.btn_signup.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_signup.Location = new System.Drawing.Point(663, 399);
+            this.btn_signup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_signup.Name = "btn_signup";
-            this.btn_signup.Size = new System.Drawing.Size(131, 24);
+            this.btn_signup.Size = new System.Drawing.Size(125, 40);
             this.btn_signup.TabIndex = 14;
             this.btn_signup.Text = "Sign Up";
             this.btn_signup.UseVisualStyleBackColor = true;
             this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
             // 
+            // nav_signup
+            // 
+            this.nav_signup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nav_signup.Location = new System.Drawing.Point(663, 13);
+            this.nav_signup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nav_signup.Name = "nav_signup";
+            this.nav_signup.Size = new System.Drawing.Size(125, 39);
+            this.nav_signup.TabIndex = 15;
+            this.nav_signup.Text = "sign In";
+            this.nav_signup.UseVisualStyleBackColor = true;
+            this.nav_signup.Click += new System.EventHandler(this.nav_signup_Click);
+            // 
             // SignupForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.nav_signup);
             this.Controls.Add(this.btn_signup);
             this.Controls.Add(this.date);
             this.Controls.Add(this.txt_name);
@@ -202,7 +210,7 @@ namespace flight_project
             this.Controls.Add(this.birthdate);
             this.Controls.Add(this.email);
             this.Controls.Add(this.SignUp);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SignupForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SignupForm";
@@ -229,5 +237,6 @@ namespace flight_project
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.Button btn_signup;
+        private System.Windows.Forms.Button nav_signup;
     }
 }

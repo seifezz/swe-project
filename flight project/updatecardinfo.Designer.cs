@@ -38,6 +38,7 @@ namespace flight_project
             this.date = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.cardNumTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // clientNameTextBox
@@ -128,11 +129,24 @@ namespace flight_project
             this.cardNumTextBox.Size = new System.Drawing.Size(281, 22);
             this.cardNumTextBox.TabIndex = 51;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.BackgroundImage = global::flight_project.Properties.Resources.output_onlinepngtools;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(12, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(44, 44);
+            this.button1.TabIndex = 52;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // updatecardinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 542);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.cardNumTextBox);
             this.Controls.Add(this.date);
             this.Controls.Add(this.label2);
@@ -164,5 +178,6 @@ namespace flight_project
         private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox cardNumTextBox;
+        private System.Windows.Forms.Button button1;
     }
 }

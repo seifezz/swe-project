@@ -340,20 +340,45 @@ namespace flight_project
             OracleCommand cmd2 = new OracleCommand();
             cmd2.Connection = conn;
 
-            cmd2.CommandText = "UPDATE cardinfo SET expiredate=TO_DATE(:age, 'DD/MM/YYYY') , clientname=:newClientName  WHERE cardnumber =:cardNumber";
-            cmd2.Parameters.Add("expiredate", expiredate);
-            cmd2.Parameters.Add("newClientName", cardinfo.clientName);
+            //cmd2.CommandText = "UPDATE cardinfo SET expiredate=TO_DATE(:age, 'DD/MM/YYYY') , clientname=:newClientName  WHERE cardnumber =:cardNumber";
+            //cmd2.Parameters.Add("expiredate", expiredate);
+            //cmd2.Parameters.Add("newClientName", cardinfo.clientName);
+            //cmd2.Parameters.Add("cardNumber", getCardInfoByemail(email).cardId);
+
+            //cmd2.CommandText = "Delete from cardinfo WHERE cardnumber =:cardNumber" +
+            //                   "UPDATE userinfo  SET cardnumber=:cardnumber WHERE email=:email " +
+            //                   "INSERT INTO userinfo cardnumber values :cardnumber" +
+            //                   "INSERT INTO cardinfo (cardnumber,clientname ,expiredate ) values ((SELECT cardnumber FROM userinfo WHERE email = :email),:clientname ,TO_DATE(:expiredate, 'DD/MM/YYYY') )";
+            //cmd2.CommandType = System.Data.CommandType.Text;
+            //cmd2.Parameters.Add("cardNumber", getCardInfoByemail(email).cardId);
+            //cmd2.Parameters.Add("email", email);
+            //cmd2.Parameters.Add("clientname", card.clientName);
+            //cmd2.Parameters.Add("expiredate", expiredate);
+
+            cmd2.CommandText = "Delete from cardinfo WHERE cardnumber =:cardNumber ";
             cmd2.Parameters.Add("cardNumber", getCardInfoByemail(email).cardId);
 
+            cmd2.CommandText = "UPDATE userinfo SET cardnumber=:cardnumber WHERE email=:email";
+            cmd2.Parameters.Add("cardnumber", cardinfo.cardId);
+            cmd2.Parameters.Add("email", email);
 
+            //cmd2.CommandText = "INSERT INTO userinfo cardnumber values (:cardnumber)";
+            //cmd2.Parameters.Add("cardnumber", card.cardId);
+
+            cmd2.CommandText = "INSERT INTO cardinfo (cardnumber,clientname ,expiredate ) values (:cardnumber,:clientname ,TO_DATE(:expiredate, 'DD/MM/YYYY') )";
+            cmd2.CommandType = System.Data.CommandType.Text;
+            cmd2.Parameters.Add("cardnumber", cardinfo.cardId);
+            cmd2.Parameters.Add("clientname", cardinfo.clientName);
+            cmd2.Parameters.Add("expiredate", expiredate);
 
             try
             {
                 int x = cmd2.ExecuteNonQuery();
                 return true;
             }
-            catch (Exception)
+            catch (Exception err)
             {
+                throw (err);
                 return false;
 
             }

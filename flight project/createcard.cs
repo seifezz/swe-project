@@ -32,10 +32,22 @@ namespace flight_project
         private void button1_Click_1(object sender, EventArgs e)
         {
             UserModel func = new UserModel();
+            string cardnumber = CardNumberTextBox.Text;
+            bool isAdded = false;
 
+           if (cardnumber.Length > 10)
+            {
+                MessageBox.Show("please but number less than 12 number");
+                this.Refresh();
+            }
+            else
+            {
+                cards newCard = new cards(Convert.ToInt32(CardNumberTextBox.Text), CardNameTextBox.Text, date.Value.ToString());
+                 isAdded = func.createCardInfo(newCard, Program.globaleEmail);
+            }
+            
 
-            cards newCard = new cards(Convert.ToInt32(CardNumberTextBox.Text), CardNameTextBox.Text, date.Value.ToString());
-            bool isAdded = func.createCardInfo(newCard, Program.globaleEmail);
+           
             if (isAdded)
             {
                 MessageBox.Show("successfully added...!");
@@ -46,6 +58,7 @@ namespace flight_project
                 MessageBox.Show("Failed to Add !");
                 this.Refresh();
             }
+            
         }
 
         private void createcard_FormClosed(object sender, FormClosedEventArgs e)
@@ -58,6 +71,11 @@ namespace flight_project
             UserForm form = new UserForm();
             form.Show();
             this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

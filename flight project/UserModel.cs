@@ -49,8 +49,8 @@ namespace flight_project
             //card info 
             public struct cardInfo
             {
-                public int cardId;
-                public int passNum;
+                public long cardId;
+                
                 public string clientName;
                 public string expiredate;
             };
@@ -130,7 +130,7 @@ namespace flight_project
             }
 
         }
-        public bool updateCardNumberInUserInfo(int cardId, string email)
+        public bool updateCardNumberInUserInfo(long cardId, string email)
         {
 
             OracleCommand command = new OracleCommand();
@@ -406,7 +406,7 @@ namespace flight_project
             OracleCommand cmd2 = new OracleCommand();
             cmd2.Connection = conn;
 
-            int cardid = getCardInfoByemail(email).cardId;
+            long cardid = getCardInfoByemail(email).cardId;
 
             cmd.CommandText = "Delete from cardinfo WHERE cardnumber =:cardNumber ";
             cmd.Parameters.Add("cardNumber", cardid);
@@ -624,7 +624,7 @@ namespace flight_project
     }
     class cards
     {
-        public int cardId;
+        public long cardId;
         public string clientName;
         public string expirydate;
 

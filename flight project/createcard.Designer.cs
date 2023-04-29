@@ -85,7 +85,8 @@ namespace flight_project
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(182, 20);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Card number(14 dig)";
+            this.label2.Text = "Card number(10 dig)";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -101,7 +102,7 @@ namespace flight_project
             // date
             // 
             this.date.Location = new System.Drawing.Point(529, 301);
-            this.date.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.date.Margin = new System.Windows.Forms.Padding(4);
             this.date.Name = "date";
             this.date.Size = new System.Drawing.Size(281, 22);
             this.date.TabIndex = 52;

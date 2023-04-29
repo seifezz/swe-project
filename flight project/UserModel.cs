@@ -483,7 +483,7 @@ namespace flight_project
         {
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "select max(count) from BOOKEDFLIGHT where flightid = :id";
+            cmd.CommandText = "select sum(count) from BOOKEDFLIGHT where flightid = :id";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("id", flightid);
             try
@@ -519,19 +519,20 @@ namespace flight_project
             }
             return true;
         }
-        public void Bookflight(string flightid, string nationalid, int noofflights)
+        public void Bookflight(string flightid, string nationalid, int noofseats, int noofflights)
         {
+
             if (checkbook(flightid, nationalid))
             {
                 int y = getcount(flightid);
-                if (y < noofflights)
+                if (y + noofseats <= noofflights)
                 {
                     OracleCommand cmd = new OracleCommand();
                     cmd.Connection = conn;
                     cmd.CommandText = "insert into BOOKEDFLIGHT values(:id,:nid,:count)";
                     cmd.Parameters.Add("id", flightid);
                     cmd.Parameters.Add("nid", nationalid);
-                    cmd.Parameters.Add("count", y + 1);
+                    cmd.Parameters.Add("count", noofseats);
                     int r = cmd.ExecuteNonQuery();
                     if (r != -1)
                     {
@@ -540,7 +541,14 @@ namespace flight_project
                 }
                 else
                 {
-                    MessageBox.Show("There's no Left Places");
+                    if ((noofflights - y) == 0)
+                    {
+                        MessageBox.Show("There's no Left Places");
+                    }
+                    else
+                    {
+                        MessageBox.Show("There's Only " + (noofflights - y) + " Places Left");
+                    }
                 }
             }
             else

@@ -56,7 +56,8 @@ namespace flight_project
         private void button1_Click(object sender, EventArgs e)
         {
             User user = um.getUserByEmail(Program.globaleEmail);
-            um.Bookflight(idtobebooked, user.nationalID, x);
+            um.Bookflight(idtobebooked, user.nationalID, Convert.ToInt32(textBox7.Text.ToString()), x);
+            textBox7.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)

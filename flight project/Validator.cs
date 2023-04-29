@@ -46,7 +46,6 @@ namespace flight_project
 
             if (password.Length >= 8)
             {
-
                 Regex hasUpperCase = new Regex(@"[A-Z]+");
                 Regex hasLowerCase = new Regex(@"[a-z]+");
                 Regex hasNumber = new Regex(@"[0-9]+");
@@ -58,8 +57,7 @@ namespace flight_project
 
 
             }
-
-            return true;
+            return false;
         }
 
         public static bool notEmpty(string[] values)

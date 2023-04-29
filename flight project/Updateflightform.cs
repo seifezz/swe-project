@@ -60,6 +60,7 @@ namespace flight_project
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = adminModel.Loadinfo(comboBox1.SelectedValue.ToString(), comboBox2.SelectedValue.ToString());
+            dataGridView1.Columns[0].ReadOnly = true;
         }
     }
 }

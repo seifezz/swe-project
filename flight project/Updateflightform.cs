@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace flight_project
 {
@@ -21,8 +22,16 @@ namespace flight_project
 
         private void Updateflightform_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = adminModel.Loadinfo();
+            DataSet ds = adminModel.loadcombobox();
+            comboBox1.DataSource = ds.Tables["flightinfo"];
+            comboBox1.DisplayMember = "Destination";
+            comboBox1.ValueMember = "Destination";
+
+            comboBox2.DataSource = ds.Tables["flightinfo"];
+            comboBox2.DisplayMember = "Leaving";
+            comboBox2.ValueMember = "Leaving";
         }
+
 
         private void Savebtn_Click(object sender, EventArgs e)
         {
@@ -46,6 +55,11 @@ namespace flight_project
         private void Updateflightform_FormClosed(object sender, FormClosedEventArgs e)
         {
             Process.GetCurrentProcess().Kill();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = adminModel.Loadinfo(comboBox1.SelectedValue.ToString(), comboBox2.SelectedValue.ToString());
         }
     }
 }

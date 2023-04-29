@@ -1,7 +1,10 @@
 ﻿using Oracle.DataAccess.Client;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Runtime.Remoting.Lifetime;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 
@@ -451,6 +454,22 @@ namespace flight_project
             }
             dr.Close();
             return datatable;
+        }
+
+        public List<Tuple<string, string>> loadcombo()
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "select Destination,Leaving from flightinfo";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader dr = cmd.ExecuteReader();
+            List<Tuple<string, string>> values = new List<Tuple<string, string>>();
+
+            while (dr.Read())
+            {
+                values.Add(new Tuple<string, string>(dr.GetString(0), dr.GetString(1)));
+            }
+            return values;
         }
         public OracleDataReader loadbookdata(string id)
         {

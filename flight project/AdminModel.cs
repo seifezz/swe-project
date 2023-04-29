@@ -73,11 +73,20 @@ namespace flight_project
                 return false;
             }
         }
-
-        public DataTable Loadinfo()
+        public DataSet loadcombobox()
         {
-            cmdstr = "select * from flightinfo";
+            cmdstr = "select Distinct Destination,leaving from flightinfo";
             adapter = new OracleDataAdapter(cmdstr, constr);
+            ds = new DataSet();
+            adapter.Fill(ds, "flightinfo");
+            return ds;
+        }
+        public DataTable Loadinfo(string dest, string leave)
+        {
+            cmdstr = "select * from flightinfo where Destination = :dest and Leaving = :leave";
+            adapter = new OracleDataAdapter(cmdstr, constr);
+            adapter.SelectCommand.Parameters.Add("dest", dest);
+            adapter.SelectCommand.Parameters.Add("leave", leave);
             ds = new DataSet();
             adapter.Fill(ds);
             return ds.Tables[0];

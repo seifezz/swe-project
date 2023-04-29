@@ -6,7 +6,7 @@ Drop table historyinfo  cascade constraints;
 
 create table userinfo 
 (email varchar2(30) unique , username varchar2(20) , phone varchar2(15), nationalid varchar2(20) primary key,
-age date NOT NULL  , password varchar2(256) not null, historyflightid number(20) , cardnumber number(14) unique);
+age date NOT NULL  , password varchar2(256) not null , cardnumber number(14) unique);
 
 
 

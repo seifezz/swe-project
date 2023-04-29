@@ -483,18 +483,26 @@ namespace flight_project
         {
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "select count from BOOKEDFLIGHT where flightid = :id";
+            cmd.CommandText = "select max(count) from BOOKEDFLIGHT where flightid = :id";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("id", flightid);
-            OracleDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
+            try
             {
-                return Convert.ToInt32(dr[0]);
+                OracleDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    return Convert.ToInt32(dr[0]);
+                }
+                else
+                {
+                    return 0;
+                }
             }
-            else
+            catch (Exception)
             {
                 return 0;
             }
+
         }
 
         public bool checkbook(string flightid, string nid)

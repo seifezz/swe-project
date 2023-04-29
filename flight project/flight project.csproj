@@ -56,12 +56,16 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\app\seif_\product\11.2.0\dbhome_1\ODP.NET\bin\2.x\Oracle.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -86,6 +90,12 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminModel.cs" />
+    <Compile Include="adminreport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminreport.Designer.cs">
+      <DependentUpon>adminreport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Auth.cs" />
     <Compile Include="Bookform.cs">
       <SubType>Form</SubType>
@@ -105,11 +115,29 @@
     <Compile Include="createcard.Designer.cs">
       <DependentUpon>createcard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EditFlight.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditFlight.Designer.cs">
       <DependentUpon>EditFlight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="historyform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="historyform.Designer.cs">
+      <DependentUpon>historyform.cs</DependentUpon>
     </Compile>
     <Compile Include="Searchform.cs">
       <SubType>Form</SubType>
@@ -163,6 +191,9 @@
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="adminreport.resx">
+      <DependentUpon>adminreport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bookform.resx">
       <DependentUpon>Bookform.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,8 +203,19 @@
     <EmbeddedResource Include="createcard.resx">
       <DependentUpon>createcard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditFlight.resx">
       <DependentUpon>EditFlight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="historyform.resx">
+      <DependentUpon>historyform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Searchform.resx">
       <DependentUpon>Searchform.cs</DependentUpon>

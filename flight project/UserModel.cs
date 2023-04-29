@@ -576,6 +576,26 @@ namespace flight_project
             }
         }
 
+        public string getnationalidbyemail ( string email)
+        {
+            string nationalid = "";
+
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "select nationalid from userinfo where email=:email";
+            cmd.Parameters.Add("email", email);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                return nationalid = dr["nationalid"].ToString();
+            }
+            else
+            {
+                return nationalid;
+            }
+        }
+
         ~UserModel()
         {
             conn.Dispose();

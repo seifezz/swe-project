@@ -59,5 +59,12 @@ namespace flight_project
             sf.Show();
             this.Hide();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            historyform form = new historyform();
+            form.Show();
+            this.Hide();
+        }
     }
 }

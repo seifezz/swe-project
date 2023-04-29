@@ -43,5 +43,12 @@ namespace flight_project
             signin.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            adminreport form = new adminreport();
+            form.Show();
+            this.Hide();
+        }
     }
 }

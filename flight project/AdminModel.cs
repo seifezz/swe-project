@@ -35,7 +35,6 @@ namespace flight_project
                 return 0;
             }
         }
-
         public bool InsertFlight(string dest, string leaving, float discount, int noofseats, char classtype, float price, string date)
         {
             cmdstr = "INSERT INTO FLIGHTINFO (FLIGHTID,DESTINATION,LEAVING,DISCOUNT,NUMBEROFSEAT,CLASSTYPE,FLIGHTPRICE,FLIGHTDATE) VALUES " +
@@ -91,13 +90,10 @@ namespace flight_project
             adapter.Fill(ds);
             return ds.Tables[0];
         }
-
         public void Saveinfo(DataTable dt)
         {
             builder = new OracleCommandBuilder(adapter);
             adapter.Update(dt);
         }
-
-
     }
 }

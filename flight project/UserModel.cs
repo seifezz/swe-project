@@ -38,6 +38,11 @@ namespace flight_project
             conn.Open();
 
         }
+        ~UserModel()
+        {
+            conn.Dispose();
+
+        }
 
         public struct dataToBeUpdated
         {
@@ -55,16 +60,11 @@ namespace flight_project
             public string phoneNumber;
             public string age;
             public string password;
-
-
-
         }
 
         public bool createUser()
         {
-
             string userBirthDateArr = user.age.Split(' ')[0];
-
             string userBirthDate = Convert.ToDateTime(userBirthDateArr).ToString("dd-MM-yyyy");
 
             OracleCommand cmd = new OracleCommand();
@@ -130,7 +130,6 @@ namespace flight_project
             }
 
         }
-        //done
         public bool updateCardNumberInUserInfo(int cardId, string email)
         {
 
@@ -162,7 +161,6 @@ namespace flight_project
 
 
         }
-        //done
         public bool createCardInfo(cards card, string email)
         {
 
@@ -208,7 +206,6 @@ namespace flight_project
             }
 
         }
-        //done
         public cards getCardInfoByemail(string email)
         {
             OracleCommand cardInfoQuery = new OracleCommand();
@@ -291,7 +288,6 @@ namespace flight_project
 
 
         }
-
         public bool Updatepassword(string email, string newpassword)
         {
             int r = -1;
@@ -327,8 +323,6 @@ namespace flight_project
 
 
         }
-
-
         public bool updatecardinfo(string email, UserModel.dataToBeUpdated.cardInfo cardinfo)
         {
 
@@ -404,7 +398,6 @@ namespace flight_project
             }
             return check;
         }
-
         public bool deletecardinfo(string email)
         {
             OracleCommand cmd = new OracleCommand();
@@ -432,7 +425,6 @@ namespace flight_project
 
             }
         }
-
         public DataTable search(string dest, string leave)
         {
             OracleCommand cmd = new OracleCommand();
@@ -455,7 +447,6 @@ namespace flight_project
             dr.Close();
             return datatable;
         }
-
         public List<Tuple<string, string>> loadcombo()
         {
             OracleCommand cmd = new OracleCommand();
@@ -486,7 +477,6 @@ namespace flight_project
             }
             return null;
         }
-
         public string priceafterdisc(string id)
         {
             OracleCommand cmd = new OracleCommand();
@@ -523,7 +513,6 @@ namespace flight_project
             }
 
         }
-
         public bool checkbook(string flightid, string nid)
         {
             OracleCommand cmd = new OracleCommand();
@@ -575,8 +564,7 @@ namespace flight_project
                 MessageBox.Show("You Already Booked this trip");
             }
         }
-
-        public string getnationalidbyemail ( string email)
+        public string getnationalidbyemail(string email)
         {
             string nationalid = "";
 
@@ -595,13 +583,44 @@ namespace flight_project
                 return nationalid;
             }
         }
-
-        ~UserModel()
+        public List<int> outofdate()
         {
-            conn.Dispose();
-
+            List<int> list = new List<int>();
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "select flightid from flightinfo where flightdate<sysdate";
+            cmd.CommandType = CommandType.Text;
+            OracleDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                list.Add(Convert.ToInt32(dr[0]));
+            }
+            return list;
         }
+        public void movetohistory()
+        {
+            List<int> list = outofdate();
 
+            //OracleDataReader dr;
+            for (int i = 0; i < list.Count; i++)
+            {
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "insert into historyinfo(flightid,nationalid) select flightid,nationalid from bookedflight where flightid= :id";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("id", list[i]);
+                OracleDataReader dr = cmd.ExecuteReader();
+            }
+            for (int i = 0; i < list.Count; i++)
+            {
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = conn;
+                cmd.CommandText = "delete from bookedflight where flightid= :id";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("id", list[i]);
+                OracleDataReader dr = cmd.ExecuteReader();
+            }
+        }
     }
     class cards
     {

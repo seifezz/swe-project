@@ -14,6 +14,7 @@ namespace flight_project
     public partial class historyform : Form
     {
         CrystalReport2 cr;
+        UserModel userr = new UserModel();
         public historyform()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace flight_project
 
         private void historyform_Load(object sender, EventArgs e)
         {
+            userr.movetohistory();
             cr = new CrystalReport2();
         }
 
@@ -30,7 +32,7 @@ namespace flight_project
             string nationalid = user.getnationalidbyemail(Program.globaleEmail);
 
             cr.SetParameterValue(0, nationalid);
-            crystalReportViewer1.ReportSource= cr;
+            crystalReportViewer1.ReportSource = cr;
 
         }
 

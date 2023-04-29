@@ -85,6 +85,7 @@ namespace flight_project
             this.txt_pass.Location = new System.Drawing.Point(174, 191);
             this.txt_pass.Margin = new System.Windows.Forms.Padding(2);
             this.txt_pass.Name = "txt_pass";
+            this.txt_pass.PasswordChar = '*';
             this.txt_pass.Size = new System.Drawing.Size(243, 20);
             this.txt_pass.TabIndex = 4;
             // 

@@ -21,7 +21,6 @@ namespace flight_project
 
         public int Getlastid()
         {
-
             cmdstr = "select max(FLIGHTID) from FLIGHTINFO";
             adapter = new OracleDataAdapter(cmdstr, constr);
             adapter.SelectCommand = new OracleCommand(cmdstr, new OracleConnection(constr));

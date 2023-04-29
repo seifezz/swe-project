@@ -87,6 +87,12 @@
     </Compile>
     <Compile Include="AdminModel.cs" />
     <Compile Include="Auth.cs" />
+    <Compile Include="Bookform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bookform.Designer.cs">
+      <DependentUpon>Bookform.cs</DependentUpon>
+    </Compile>
     <Compile Include="cancelflight.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bookform.resx">
+      <DependentUpon>Bookform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="cancelflight.resx">
       <DependentUpon>cancelflight.cs</DependentUpon>

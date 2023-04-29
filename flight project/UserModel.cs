@@ -1,6 +1,7 @@
 ﻿using Oracle.DataAccess.Client;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 
@@ -290,10 +291,6 @@ namespace flight_project
 
         public bool Updatepassword(string email, string newpassword)
         {
-
-
-
-
             int r = -1;
             bool status = false;
 
@@ -413,8 +410,6 @@ namespace flight_project
             OracleCommand cmd2 = new OracleCommand();
             cmd2.Connection = conn;
 
-
-
             int cardid = getCardInfoByemail(email).cardId;
 
             cmd.CommandText = "Delete from cardinfo WHERE cardnumber =:cardNumber ";
@@ -422,15 +417,10 @@ namespace flight_project
 
             cmd2.CommandText = "UPDATE userinfo SET cardnumber=null WHERE email=:email";
             cmd2.Parameters.Add("email", email);
-
-
-
             try
             {
-
                 int x = cmd.ExecuteNonQuery();
                 int y = cmd2.ExecuteNonQuery();
-
                 return true;
             }
             catch (Exception)
@@ -444,10 +434,11 @@ namespace flight_project
         {
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "select * from flightinfo where  destination= :dest AND leaving= :leave";
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SEARCHFLIGHT";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add("dest", dest);
             cmd.Parameters.Add("leave", leave);
+            cmd.Parameters.Add("out", OracleDbType.RefCursor, ParameterDirection.Output);
             OracleDataReader dr = cmd.ExecuteReader();
             DataTable datatable = new DataTable();
             if (dr.HasRows)
@@ -461,7 +452,94 @@ namespace flight_project
             dr.Close();
             return datatable;
         }
+        public OracleDataReader loadbookdata(string id)
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECTBOOKDATA";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id", id);
+            cmd.Parameters.Add("out", OracleDbType.RefCursor, ParameterDirection.Output);
+            OracleDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                return dr;
+            }
+            return null;
+        }
 
+        public string priceafterdisc(string id)
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "GETPRICEAFTERDISC";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("id", id);
+            cmd.Parameters.Add("price", OracleDbType.Double, ParameterDirection.Output);
+            cmd.ExecuteNonQuery();
+            return cmd.Parameters["price"].Value.ToString();
+        }
+        public int getcount(string flightid)
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "select count from BOOKEDFLIGHT where flightid = :id";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("id", flightid);
+            OracleDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                return Convert.ToInt32(dr[0]);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public bool checkbook(string flightid, string nid)
+        {
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "select * from BOOKEDFLIGHT where flightid= :fid and nationalid= :nid";
+            cmd.Parameters.Add("id", flightid);
+            cmd.Parameters.Add("nid", nid);
+            OracleDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+                return false;
+            }
+            return true;
+        }
+        public void Bookflight(string flightid, string nationalid, int noofflights)
+        {
+            if (checkbook(flightid, nationalid))
+            {
+                int y = getcount(flightid);
+                if (y < noofflights)
+                {
+                    OracleCommand cmd = new OracleCommand();
+                    cmd.Connection = conn;
+                    cmd.CommandText = "insert into BOOKEDFLIGHT values(:id,:nid,:count)";
+                    cmd.Parameters.Add("id", flightid);
+                    cmd.Parameters.Add("nid", nationalid);
+                    cmd.Parameters.Add("count", y + 1);
+                    int r = cmd.ExecuteNonQuery();
+                    if (r != -1)
+                    {
+                        MessageBox.Show("Flight is Booked");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There's no Left Places");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You Already Booked this trip");
+            }
+        }
 
         ~UserModel()
         {

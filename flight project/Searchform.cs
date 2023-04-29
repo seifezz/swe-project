@@ -35,5 +35,13 @@ namespace flight_project
             userForm.Show();
             this.Hide();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(dataGridView1.SelectedRows[0].Cells["flightid"].Value.ToString());
+            Bookform bookform = new Bookform(dataGridView1.SelectedRows[0].Cells["flightid"].Value.ToString());
+            bookform.Show();
+            this.Hide();
+        }
     }
 }
